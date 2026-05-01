@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nexa AI Capital – AI-Native Quant Strategies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Nexa AI Capital is an AI-native quantitative investment platform combining alternative data, real-time execution, and institutional-grade risk systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #050814;
+      --bg-elevated: #0b1020;
+      --bg-elevated-2: #10172b;
+      --accent-cyan: #28e0ff;
+      --accent-blue: #2f6bff;
+      --accent-purple: #a960ff;
+      --accent-orange: #ff8b3d;
+      --text-main: #f5f7ff;
+      --text-muted: #9ba3c6;
+      --text-faint: #64709a;
+      --success: #28ffa3;
+      --border-soft: rgba(40, 224, 255, 0.14);
+      --border-strong: rgba(40, 224, 255, 0.24);
+      --shadow-lg: 0 26px 80px rgba(0, 0, 0, 0.85);
+      --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.72);
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, #101633 0, #050814 45%, #02030a 100%);
+      color: var(--text-main);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a, button, input, textarea {
+      transition: color 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.5rem;
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background: conic-gradient(from 160deg, var(--accent-cyan), var(--accent-blue), var(--accent-purple), var(--accent-orange), var(--accent-cyan));
+      box-shadow: 0 0 18px rgba(40, 224, 255, 0.7);
+    }
+
+    .logo-text,
+    .footer-brand-title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.35rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a,
+    .footer-links a,
+    .footer-meta a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-links a:hover,
+    .footer-links a:hover,
+    .footer-meta a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .nav-cta,
+    .button-secondary {
+      padding: 0.9rem 1.4rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(40, 224, 255, 0.4);
+      background: transparent;
+      color: var(--accent-cyan);
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button-primary,
+    .contact-submit {
+      background: linear-gradient(120deg, var(--accent-cyan), var(--accent-blue));
+      color: #020308;
+      border-radius: var(--radius-pill);
+      padding: 0.95rem 1.8rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 24px rgba(40, 224, 255, 0.52);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .button-primary:hover,
+    .contact-submit:hover,
+    .button-secondary:hover,
+    .nav-cta:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .hero-inner,
+    .strategies-inner,
+    .team-inner,
+    .contact-inner,
+    .footer-inner {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 3rem;
+    }
+
+    .hero-badge,
+    .strategy-pill,
+    .contact-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.22rem 0.8rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge {
+      border: 1px solid rgba(169, 96, 255, 0.5);
+      background: rgba(169, 96, 255, 0.1);
+      color: var(--accent-purple);
+    }
+
+    .hero-badge-dot,
+    .strategy-pill-dot,
+    .contact-tag-dot,
+    .hero-badge-live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-orange), var(--accent-purple));
+    }
+
+    .hero-title,
+    .strategies-title,
+    .team-title,
+    .contact-title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 4vw, 3.7rem);
+      line-height: 1.04;
+      margin-top: 1.2rem;
+      margin-bottom: 0;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, var(--accent-cyan), var(--accent-blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle,
+    .strategies-subtitle,
+    .team-subtitle,
+    .contact-subtitle,
+    .footer-brand-copy,
+    .footer-meta {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .hero-actions,
+    .hero-metric-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.8rem;
+    }
+
+    .hero-actions { margin-top: 1.8rem; }
+    .hero-metric-row { margin-top: 2.2rem; }
+
+    .hero-metric {
+      display: flex;
+      flex-direction: column;
+      gap: 0.12rem;
+    }
+
+    .hero-metric-label,
+    .hero-ceos-title,
+    .hero-card-title,
+    .hero-card-metric-label,
+    .team-eyebrow,
+    .team-role,
+    .strategies-eyebrow,
+    .footer-column-title,
+    .footer-meta {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-metric-value,
+    .hero-card-metric-value,
+    .strategy-name,
+    .team-name {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+    }
+
+    .hero-metric-value { font-size: 1.08rem; }
+    .positive { color: var(--success); }
+
+    .hero-ceos {
+      margin-top: 2.6rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(40, 224, 255, 0.25);
+    }
+
+    .hero-ceos-names { color: var(--accent-cyan); }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 420px;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 1px dashed rgba(40, 224, 255, 0.4);
+      opacity: 0.7;
+    }
+
+    .hero-orbit.orbit-2 {
+      width: 360px;
+      height: 360px;
+      border-color: rgba(169, 96, 255, 0.35);
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40, 224, 255, 0.28), transparent 60%);
+      filter: blur(6px);
+    }
+
+    .hero-card,
+    .strategy-card,
+    .team-card,
+    .contact-form,
+    .contact-panel {
+      background: rgba(5, 8, 20, 0.96);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      border-radius: var(--radius-lg);
+      padding: 1.3rem 1.25rem 1.2rem;
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-card-header,
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .hero-card-header { margin-bottom: 0.6rem; }
+
+    .hero-badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: rgba(40, 255, 163, 0.09);
+      border: 1px solid rgba(40, 255, 163, 0.6);
+      font-size: 0.7rem;
+      color: var(--success);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-badge-live-dot {
+      background: radial-gradient(circle, #28ffa3, transparent);
+    }
+
+    .hero-chart {
+      height: 140px;
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(40, 224, 255, 0.35), transparent 55%),
+        radial-gradient(circle at 85% 80%, rgba(169, 96, 255, 0.4), transparent 55%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-chart-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 36px 36px;
+      opacity: 0.6;
+    }
+
+    .hero-chart-line {
+      position: absolute;
+      inset: 18px 12px 10px 12px;
+    }
+
+    .hero-chart-line svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .hero-card-footer {
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+      align-items: flex-end;
+    }
+
+    .hero-tag {
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      background: rgba(5, 8, 20, 0.9);
+      border: 1px solid rgba(40, 224, 255, 0.4);
+      color: var(--accent-cyan);
+      white-space: nowrap;
+    }
+
+    .strategies,
+    .team,
+    .contact,
+    .site-footer {
+      padding: 3.2rem 1.5rem;
+    }
+
+    .strategies {
+      background: radial-gradient(circle at top right, rgba(40, 224, 255, 0.16), transparent 60%);
+      border-top: 1px solid rgba(40, 224, 255, 0.08);
+      border-bottom: 1px solid rgba(40, 224, 255, 0.08);
+    }
+
+    .strategies-header,
+    .team-header,
+    .contact-copy {
+      max-width: 640px;
+    }
+
+    .strategies-title,
+    .team-title,
+    .contact-title {
+      font-size: clamp(1.8rem, 2.4vw, 2.1rem);
+      margin: 0 0 0.7rem;
+    }
+
+    .strategies-grid,
+    .team-grid {
+      display: grid;
+      gap: 1.45rem;
+      margin-top: 2rem;
+    }
+
+    .strategies-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .strategy-card,
+    .team-card,
+    .contact-form,
+    .contact-panel {
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+
+    .strategy-card {
+      padding: 1.3rem 1.2rem 1.15rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .strategy-pill {
+      border: 1px solid rgba(40, 224, 255, 0.4);
+      color: var(--accent-cyan);
+      margin-bottom: 0.65rem;
+    }
+
+    .strategy-pill-dot {
+      background: radial-gradient(circle, var(--accent-cyan), transparent);
+    }
+
+    .strategy-name {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+    }
+
+    .strategy-desc,
+    .strategy-tagline,
+    .team-bio,
+    .contact-list,
+    .contact-note,
+    .footer-links,
+    .footer-note {
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-size: 0.9rem;
+    }
+
+    .strategy-tagline { color: var(--accent-purple); margin-top: 0.65rem; }
+
+    .strategy-glow {
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40, 224, 255, 0.32), transparent 60%);
+      opacity: 0.58;
+    }
+
+    .team {
+      background: radial-gradient(circle at bottom right, rgba(169, 96, 255, 0.16), transparent 60%);
+    }
+
+    .team-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .team-card {
+      padding: 1.35rem 1.25rem;
+    }
+
+    .team-name {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .team-role {
+      margin: 0.2rem 0 0.55rem;
+    }
+
+    .contact {
+      border-top: 1px solid rgba(40, 224, 255, 0.08);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255, 139, 61, 0.12), transparent 35%),
+        radial-gradient(circle at 85% 90%, rgba(40, 224, 255, 0.14), transparent 38%);
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 1.6rem;
+      align-items: start;
+    }
+
+    .contact-tag {
+      border: 1px solid rgba(255, 139, 61, 0.32);
+      background: rgba(255, 139, 61, 0.08);
+      color: var(--accent-orange);
+      margin-bottom: 1rem;
+    }
+
+    .contact-tag-dot {
+      background: radial-gradient(circle, var(--accent-orange), transparent);
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.35rem 0 0;
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .contact-list strong {
+      display: block;
+      color: var(--text-main);
+      margin-bottom: 0.12rem;
+      font-size: 0.92rem;
+    }
+
+    .contact-panel,
+    .contact-form {
+      padding: 1.4rem;
+    }
+
+    .contact-panel {
+      margin-top: 1.2rem;
+    }
+
+    .contact-panel-title,
+    .contact-form-title {
+      margin: 0 0 0.5rem;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1rem;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .field label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(40, 224, 255, 0.18);
+      background: rgba(16, 23, 43, 0.92);
+      color: var(--text-main);
+      border-radius: 12px;
+      padding: 0.95rem 1rem;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: var(--text-faint);
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(40, 224, 255, 0.52);
+      box-shadow: 0 0 0 3px rgba(40, 224, 255, 0.12);
+    }
+
+    .field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    .contact-note {
+      margin: 0;
+      max-width: 32ch;
+    }
+
+    .site-footer {
+      padding-top: 1.8rem;
+      padding-bottom: 2rem;
+      border-top: 1px solid rgba(40, 224, 255, 0.08);
+      background: rgba(2, 4, 10, 0.72);
+      backdrop-filter: blur(12px);
+    }
+
+    .footer-inner {
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(180px, 0.5fr));
+      gap: 1.8rem;
+      align-items: start;
+    }
+
+    .footer-brand {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .footer-brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .footer-column-title {
+      margin: 0 0 0.7rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(40, 224, 255, 0.08);
+    }
+
+    .footer-meta {
+      margin: 0;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-note {
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .strategies-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-inner,
+      .footer-top { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 960px) {
+      .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 840px) {
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.3rem; }
+      .hero-visual { order: -1; min-height: 360px; }
+      .hero-card-footer { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 640px) {
+      .hero,
+      .strategies,
+      .team,
+      .contact,
+      .site-footer { padding-inline: 1rem; }
+      .strategies-grid,
+      .team-grid,
+      .form-row { grid-template-columns: 1fr; }
+      .nav { padding-inline: 1rem; }
+      .hero-title { font-size: clamp(2.2rem, 11vw, 3rem); }
+      .button-primary,
+      .button-secondary,
+      .contact-submit { width: 100%; }
+      .contact-actions { flex-direction: column; align-items: stretch; }
+      .footer-bottom { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="nav">
+      <div class="nav-left">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <div class="logo-text">Nexa AI Capital</div>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#strategies">Strategies</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Request deck</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              <span>AI-native quantitative investment platform</span>
+            </div>
+
+            <h1 class="hero-title">
+              Institutional‑grade alpha for the <span>AI economy</span>.
+            </h1>
+
+            <p class="hero-subtitle">
+              Nexa AI Capital combines transformer and graph neural network strategies with real-time execution and risk autopilot to unlock uncorrelated returns across global markets.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contact" class="button-primary">Request Investor Deck</a>
+              <a href="#strategies" class="button-secondary">View Strategy Framework</a>
+            </div>
+
+            <div class="hero-metric-row">
+              <div class="hero-metric">
+                <span class="hero-metric-label">Target AUM (Year 5)</span>
+                <span class="hero-metric-value">$3.3B</span>
+              </div>
+              <div class="hero-metric">
+                <span class="hero-metric-label">Net Margin (Year 5)</span>
+                <span class="hero-metric-value positive">54%</span>
+              </div>
+            </div>
+
+            <div class="hero-ceos">
+              <div class="hero-ceos-title">Leadership Team</div>
+              <div class="hero-ceos-names">
+                CEO&nbsp;Charlles Costa · Co‑CEO&nbsp;Nikki · Chief Investment Officer&nbsp;Kimi · Executives&nbsp;Andy &amp; Kiri
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-orbit"></div>
+            <div class="hero-orbit orbit-2"></div>
+            <div class="hero-glow"></div>
+
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <div class="hero-card-title">AI Strategy Dashboard</div>
+                <div class="hero-badge-live">
+                  <span class="hero-badge-live-dot"></span>
+                  Live
+                </div>
+              </div>
+
+              <div class="hero-chart">
+                <div class="hero-chart-grid"></div>
+                <div class="hero-chart-line">
+                  <svg viewBox="0 0 260 100" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="lineGradient" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="0%" stop-color="#28E0FF" />
+                        <stop offset="50%" stop-color="#2F6BFF" />
+                        <stop offset="100%" stop-color="#A960FF" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M0 82 L30 78 L60 84 L90 70 L120 60 L150 40 L180 36 L210 22 L240 18 L260 12"
+                      fill="none"
+                      stroke="url(#lineGradient)"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      opacity="0.96" />
+                    <path d="M0 96 L30 92 L60 94 L90 84 L120 78 L150 60 L180 58 L210 46 L240 42 L260 40 L260 100 L0 100 Z"
+                      fill="rgba(40, 224, 255, 0.12)" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="hero-card-footer">
+                <div>
+                  <div class="hero-card-metric-label">5-Year Revenue Cagr</div>
+                  <div class="hero-card-metric-value positive">+254%</div>
+                </div>
+                <div>
+                  <div class="hero-card-metric-label">AI Strategies</div>
+                  <div class="hero-card-metric-value">Transformers · GNN · RL</div>
+                </div>
+                <span class="hero-tag">Institutional-grade · AI-native</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="strategies" id="strategies">
+        <div class="strategies-inner">
+          <div class="strategies-header">
+            <p class="strategies-eyebrow">Strategies</p>
+            <h2 class="strategies-title">Multi‑strategy AI engine built for institutional alpha</h2>
+            <p class="strategies-subtitle">
+              Nexa AI Capital combines machine learning, alternative data, and real‑time risk controls to create persistent, uncorrelated returns across asset classes and regimes.
+            </p>
+          </div>
+
+          <div class="strategies-grid">
+            <article class="strategy-card">
+              <div class="strategy-pill"><span class="strategy-pill-dot"></span><span>AI Alpha</span></div>
+              <h3 class="strategy-name">AI Alpha Generation</h3>
+              <p class="strategy-desc">Transformer and graph neural network models scan global markets and alternative data to surface non‑linear patterns invisible to traditional factor models.</p>
+              <p class="strategy-tagline">Cross‑asset signals from tick data, satellite, and NLP sentiment feeds.</p>
+              <div class="strategy-glow"></div>
+            </article>
+
+            <article class="strategy-card">
+              <div class="strategy-pill"><span class="strategy-pill-dot"></span><span>Execution</span></div>
+              <h3 class="strategy-name">Real‑Time Execution</h3>
+              <p class="strategy-desc">Co‑located infrastructure and smart order routing balance fill quality and market impact, targeting sub‑millisecond reaction times across venues.</p>
+              <p class="strategy-tagline">ML‑driven routing across lit, dark, and crossing networks.</p>
+              <div class="strategy-glow"></div>
+            </article>
+
+            <article class="strategy-card">
+              <div class="strategy-pill"><span class="strategy-pill-dot"></span><span>Risk</span></div>
+              <h3 class="strategy-name">Risk Autopilot</h3>
+              <p class="strategy-desc">Regime detection, real‑time VaR, and Monte Carlo stress tests drive dynamic hedging, circuit breakers, and automatic de‑risking when drawdown thresholds are hit.</p>
+              <p class="strategy-tagline">Always‑on risk engine supervising every order and position.</p>
+              <div class="strategy-glow"></div>
+            </article>
+
+            <article class="strategy-card">
+              <div class="strategy-pill"><span class="strategy-pill-dot"></span><span>Alt Data</span></div>
+              <h3 class="strategy-name">Alternative Data Edge</h3>
+              <p class="strategy-desc">Unified data layer blends satellite imagery, supply‑chain graphs, ESG metrics, and NLP news &amp; social sentiment into clean features for the AI stack.</p>
+              <p class="strategy-tagline">Structured and unstructured data, engineered for live trading.</p>
+              <div class="strategy-glow"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="team" id="team">
+        <div class="team-inner">
+          <div class="team-header">
+            <p class="team-eyebrow">Team</p>
+            <h2 class="team-title">Institutional leadership, AI‑native DNA</h2>
+            <p class="team-subtitle">
+              Nexa AI Capital is led by operators and quants who have built, traded, and shipped at the intersection of institutional finance and frontier AI.
+            </p>
+          </div>
+
+          <div class="team-grid">
+            <article class="team-card">
+              <h3 class="team-name">Charlles Costa</h3>
+              <p class="team-role">Chief Executive Officer</p>
+              <p class="team-bio">Charlles leads firm strategy and capital formation, aligning institutional LP mandates with Nexa’s AI‑native investment platform and multi‑strategy portfolio architecture.</p>
+            </article>
+
+            <article class="team-card">
+              <h3 class="team-name">Nikki</h3>
+              <p class="team-role">Co‑Chief Executive Officer</p>
+              <p class="team-bio">Nikki oversees platform operations and client experience, translating complex AI strategies into transparent, institutional‑grade reporting and governance for global allocators.</p>
+            </article>
+
+            <article class="team-card">
+              <h3 class="team-name">Kimi</h3>
+              <p class="team-role">Chief Investment Officer</p>
+              <p class="team-bio">Kimi is responsible for portfolio construction and risk, combining transformer and graph neural network models with disciplined risk autopilot and capital allocation frameworks.</p>
+            </article>
+
+            <article class="team-card">
+              <h3 class="team-name">Andy</h3>
+              <p class="team-role">Executive</p>
+              <p class="team-bio">Andy focuses on institutional partnerships and distribution, building long‑term relationships with pension funds, sovereign wealth funds, and family offices across global markets.</p>
+            </article>
+
+            <article class="team-card">
+              <h3 class="team-name">Kiri</h3>
+              <p class="team-role">Executive</p>
+              <p class="team-bio">Kiri drives product and data strategy, integrating alternative data sources and real‑time analytics into the Nexa AI Capital platform to unlock new alpha and insights.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="contact-inner">
+          <div class="contact-copy">
+            <div class="contact-tag">
+              <span class="contact-tag-dot"></span>
+              <span>Investor Relations</span>
+            </div>
+            <h2 class="contact-title">Request the deck or start a conversation</h2>
+            <p class="contact-subtitle">
+              Use the contact form to request the investor deck, schedule an introduction call, or ask for more detail on strategy design, risk controls, and platform capabilities.
+            </p>
+
+            <ul class="contact-list">
+              <li>
+                <strong>What to include</strong>
+                Your firm, ticket size, interest area, and any questions about mandate fit or due diligence.
+              </li>
+              <li>
+                <strong>Response flow</strong>
+                Nexa AI Capital can review inbound investor interest, partnership requests, and platform inquiries from a single front-page channel.
+              </li>
+              <li>
+                <strong>Suggested CTA usage</strong>
+                Link the hero buttons directly to this form so investor intent can move from interest to contact in one scroll.
+              </li>
+            </ul>
+
+            <div class="contact-panel">
+              <h3 class="contact-panel-title">Direct contact block</h3>
+              <p class="contact-note">
+                Replace the placeholder email and location details below with your live investor-relations details before publishing.
+              </p>
+              <ul class="contact-list">
+                <li><strong>Email</strong> investors@nexaai.capital</li>
+                <li><strong>Location</strong> Global AI-native investment operations</li>
+                <li><strong>Focus</strong> Institutional capital, allocator partnerships, strategic mandates</li>
+              </ul>
+            </div>
+          </div>
+
+          <form class="contact-form" action="#" method="post">
+            <h3 class="contact-form-title">Investor contact form</h3>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="fullName">Full name</label>
+                <input id="fullName" name="fullName" type="text" placeholder="Your full name" required />
+              </div>
+              <div class="field">
+                <label for="company">Firm / organization</label>
+                <input id="company" name="company" type="text" placeholder="Your firm or fund" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="name@company.com" required />
+              </div>
+              <div class="field">
+                <label for="interest">Interest area</label>
+                <input id="interest" name="interest" type="text" placeholder="Investor deck, partnership, mandate" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your interest, timeline, allocation focus, or any due-diligence questions."></textarea>
+            </div>
+
+            <div class="contact-actions">
+              <button class="contact-submit" type="submit">Send inquiry</button>
+              <p class="contact-note">For live submissions, connect this form to Formspree, Netlify Forms, or your backend endpoint.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-brand-mark">
+              <div class="logo-mark" aria-hidden="true"></div>
+              <div class="footer-brand-title">Nexa AI Capital</div>
+            </div>
+            <p class="footer-brand-copy">
+              AI-native quantitative investing built around alternative data, real-time execution, and institutional-grade risk systems.
+            </p>
+            <p class="footer-note">
+              This front-page concept is designed as a premium landing page for investor positioning, strategy storytelling, and inbound contact capture.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="footer-column-title">Navigation</h3>
+            <ul class="footer-links">
+              <li><a href="#strategies">Strategies</a></li>
+              <li><a href="#team">Leadership</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="footer-column-title">Contact</h3>
+            <ul class="footer-links">
+              <li><a href="mailto:investors@nexaai.capital">investors@nexaai.capital</a></li>
+              <li><a href="#contact">Request investor deck</a></li>
+              <li>Global institutional outreach</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-meta">© 2026 Nexa AI Capital</p>
+          <p class="footer-note">CEO Charlles Costa · Co‑CEO Nikki · Chief Investment Officer Kimi · Executives Andy &amp; Kiri</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
