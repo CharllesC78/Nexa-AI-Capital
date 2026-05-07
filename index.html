@@ -522,6 +522,79 @@
       display: block;
     }
 
+    .malta-hub {
+      border-top: 1px solid rgba(40, 224, 255, 0.08);
+      background: radial-gradient(circle at top right, rgba(40, 224, 255, 0.08), transparent 60%);
+      padding: 3.5rem 1.5rem;
+    }
+
+    .malta-hub-inner {
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .malta-hub-header {
+      text-align: center;
+      margin-bottom: 2.8rem;
+    }
+
+    .malta-hub-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .malta-hub-title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.85rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      color: var(--accent-cyan);
+    }
+
+    .malta-hub-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .malta-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .malta-feature {
+      background: rgba(5, 8, 20, 0.6);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .malta-feature-title {
+      font-weight: 600;
+      color: var(--accent-purple);
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .malta-feature-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
     .contact {
       border-top: 1px solid rgba(40, 224, 255, 0.08);
       background:
@@ -769,7 +842,7 @@
             </h1>
 
             <p class="hero-subtitle">
-              Nexa AI Capital combines transformer and graph neural network strategies with real-time execution and risk autopilot to unlock uncorrelated returns across global markets.
+              Nexa AI Capital, based in Malta, combines transformer and graph neural network strategies with real-time execution and risk autopilot to unlock uncorrelated returns across global markets—leveraging EU regulatory excellence and frontier AI innovation.
             </p>
 
             <div class="hero-actions">
@@ -945,6 +1018,62 @@
         </div>
       </section>
 
+      <section class="malta-hub">
+        <div class="malta-hub-inner">
+          <div class="malta-hub-header">
+            <span class="malta-hub-eyebrow">European Operations Hub</span>
+            <h2 class="malta-hub-title">Malta: The Nexus of AI &amp; Global Fintech</h2>
+            <p class="malta-hub-subtitle">
+              Nexa AI Capital operates from Malta, one of Europe's fastest-growing AI and fintech jurisdictions, combining frontier AI research with world-class regulatory infrastructure and a thriving tech ecosystem.
+            </p>
+          </div>
+
+          <div class="malta-features">
+            <article class="malta-feature">
+              <h3 class="malta-feature-title">🏛️ Regulatory Leadership</h3>
+              <p class="malta-feature-text">
+                EU-regulated jurisdiction with MiFID II compliance, pioneering crypto/blockchain frameworks, and a sandbox-first approach that accelerates AI-native fintech innovation while maintaining institutional-grade oversight.
+              </p>
+            </article>
+
+            <article class="malta-feature">
+              <h3 class="malta-feature-title">💻 AI &amp; Tech Talent Pool</h3>
+              <p class="malta-feature-text">
+                Malta hosts a vibrant community of AI researchers, quants, and engineers. Home to leading tech firms and a growing number of AI labs, attracting talent from across Europe and globally.
+              </p>
+            </article>
+
+            <article class="malta-feature">
+              <h3 class="malta-feature-title">🎰 Gaming &amp; Fintech Legacy</h3>
+              <p class="malta-feature-text">
+                Malta's established iGaming infrastructure (NetBet, other major operators) has built deep expertise in real-time trading systems, compliance automation, and secure financial rails—core competencies for AI investment platforms.
+              </p>
+            </article>
+
+            <article class="malta-feature">
+              <h3 class="malta-feature-title">🌍 Cross-Border Access</h3>
+              <p class="malta-feature-text">
+                Strategic EU location with passporting rights, enabling seamless access to institutional LPs across Europe, Middle East, and Asia. Hub for global fund management and capital formation.
+              </p>
+            </article>
+
+            <article class="malta-feature">
+              <h3 class="malta-feature-title">⚡ Infrastructure &amp; Cost Efficiency</h3>
+              <p class="malta-feature-text">
+                World-class digital infrastructure, competitive operational costs, and a business-friendly environment attract tier-1 fintech and AI firms seeking lean, scalable European operations.
+              </p>
+            </article>
+
+            <article class="malta-feature">
+              <h3 class="malta-feature-title">🔐 Blockchain &amp; Web3 Pioneer</h3>
+              <p class="malta-feature-text">
+                Pioneer in blockchain regulation with DLT laws, stablecoin frameworks, and crypto-asset licensing—positioning Malta at the forefront of tokenized finance and on-chain derivatives for AI systems.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="contact" id="contact">
         <div class="contact-inner">
           <div class="contact-copy">
@@ -973,14 +1102,14 @@
             </ul>
 
             <div class="contact-panel">
-              <h3 class="contact-panel-title">Direct contact block</h3>
+              <h3 class="contact-panel-title">Malta Operations Hub</h3>
               <p class="contact-note">
-                Replace the placeholder email and location details below with your live investor-relations details before publishing.
+                Nexa AI Capital is headquartered in Malta, leveraging the jurisdiction's regulatory excellence, fintech infrastructure, and growing AI ecosystem for institutional-grade investment management.
               </p>
               <ul class="contact-list">
                 <li><strong>Email</strong> investors@nexaai.capital</li>
-                <li><strong>Location</strong> Global AI-native investment operations</li>
-                <li><strong>Focus</strong> Institutional capital, allocator partnerships, strategic mandates</li>
+                <li><strong>Location</strong> Malta – European AI &amp; Fintech Hub</li>
+                <li><strong>Focus</strong> Institutional capital, allocator partnerships, regulatory-compliant mandates</li>
               </ul>
             </div>
           </div>
@@ -1033,7 +1162,7 @@
               <div class="footer-brand-title">Nexa AI Capital</div>
             </div>
             <p class="footer-brand-copy">
-              AI-native quantitative investing built around alternative data, real-time execution, and institutional-grade risk systems.
+              AI-native quantitative investing built in Malta with alternative data, real-time execution, and institutional-grade risk systems. EU-regulated, globally distributed.
             </p>
             <p class="footer-note">
               This front-page concept is designed as a premium landing page for investor positioning, strategy storytelling, and inbound contact capture.
@@ -1054,7 +1183,7 @@
             <ul class="footer-links">
               <li><a href="mailto:investors@nexaai.capital">investors@nexaai.capital</a></li>
               <li><a href="#contact">Request investor deck</a></li>
-              <li>Global institutional outreach</li>
+              <li>Malta-based AI investment platform</li>
             </ul>
           </div>
         </div>
